@@ -1,0 +1,311 @@
+/* Meerkat Avatar Styles */
+
+.meerkat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+              opacity 0.8s ease;
+}
+
+.meerkat-container.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Speech Bubble */
+.speech-bubble {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.speech-bubble p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+  text-align: center;
+}
+
+.speech-bubble-arrow {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid white;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Meerkat Character */
+.meerkat {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 180px;
+}
+
+.meerkat-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: wiggle 4s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+/* Head */
+.meerkat-head {
+  position: relative;
+  width: 80px;
+  height: 90px;
+  background: linear-gradient(135deg, #d4a574 0%, #c89461 100%);
+  border-radius: 40px 40px 35px 35px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* Ears */
+.meerkat-ears {
+  position: absolute;
+  top: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.ear {
+  width: 20px;
+  height: 30px;
+  background: linear-gradient(135deg, #d4a574 0%, #b8885a 100%);
+  border-radius: 50% 50% 40% 40%;
+  box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ear::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 18px;
+  background: #f5d9b8;
+  border-radius: 50%;
+}
+
+.ear-left {
+  transform: rotate(-10deg);
+}
+
+.ear-right {
+  transform: rotate(10deg);
+}
+
+/* Face */
+.meerkat-face {
+  position: relative;
+  padding-top: 25px;
+}
+
+/* Eyes */
+.eyes {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 8px;
+}
+
+.eye {
+  width: 16px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: blink 5s infinite;
+}
+
+.pupil {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 10px;
+  background: #2c2c2c;
+  border-radius: 50%;
+}
+
+@keyframes blink {
+  0%, 98%, 100% {
+    transform: scaleY(1);
+  }
+  99% {
+    transform: scaleY(0.1);
+  }
+}
+
+/* Nose */
+.nose {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 10px;
+  background: #3a3a3a;
+  border-radius: 50% 50% 60% 60%;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Mouth */
+.mouth {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 60px;
+  width: 30px;
+  height: 15px;
+  border: 2px solid #3a3a3a;
+  border-top: none;
+  border-radius: 0 0 50% 50%;
+}
+
+.mouth::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 8px;
+  background: #3a3a3a;
+}
+
+/* Torso */
+.meerkat-torso {
+  position: relative;
+  width: 70px;
+  height: 80px;
+  background: linear-gradient(180deg, #d4a574 0%, #c89461 50%, #d4a574 100%);
+  border-radius: 35px 35px 30px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: -10px;
+}
+
+.meerkat-torso::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45px;
+  height: 55px;
+  background: #f5d9b8;
+  border-radius: 50%;
+}
+
+/* Arms */
+.meerkat-arms {
+  position: absolute;
+  top: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+.arm {
+  position: absolute;
+  width: 15px;
+  height: 50px;
+  background: linear-gradient(180deg, #d4a574 0%, #c89461 100%);
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.arm-left {
+  left: -8px;
+  transform: rotate(-20deg);
+  animation: wave-left 2s ease-in-out infinite;
+}
+
+.arm-right {
+  right: -8px;
+  transform: rotate(20deg);
+  animation: wave-right 2s ease-in-out infinite;
+}
+
+@keyframes wave-left {
+  0%, 100% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes wave-right {
+  0%, 100% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .speech-bubble {
+    max-width: 90%;
+    padding: 1rem 1.5rem;
+  }
+
+  .speech-bubble p {
+    font-size: 1rem;
+  }
+
+  .meerkat {
+    height: 150px;
+  }
+
+  .meerkat-head {
+    width: 70px;
+    height: 80px;
+  }
+
+  .meerkat-torso {
+    width: 60px;
+    height: 70px;
+  }
+}

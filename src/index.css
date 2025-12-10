@@ -1,0 +1,194 @@
+/* Global Styles for Mood-Buddy */
+
+/* CSS Reset & Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Color Palette - Desert/Ghibli-inspired */
+  --color-sand-light: #ffd89b;
+  --color-sand: #f5d9b8;
+  --color-sand-medium: #e8d5c4;
+  --color-sand-dark: #d4a574;
+  --color-brown-medium: #c89461;
+  --color-brown-dark: #b8885a;
+  --color-brown-darker: #5a4a3a;
+  --color-gray-medium: #8a7a6a;
+  --color-gray-light: #f0f0f0;
+
+  /* Typography */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  --font-family-mono: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 50px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base HTML Elements */
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  color: var(--color-brown-darker);
+  background: var(--color-sand);
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: var(--color-brown-medium);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-brown-dark);
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-brown-medium);
+  outline-offset: 2px;
+}
+
+/* Form Elements */
+input[type="range"] {
+  cursor: pointer;
+}
+
+input:focus-visible {
+  outline: 2px solid var(--color-brown-medium);
+  outline-offset: 2px;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus Visible */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-brown-medium);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Scrollbar Styling (Webkit) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sand-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand-dark);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brown-medium);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-sand-dark);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--color-sand-dark);
+  color: white;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark Mode Support (optional future enhancement) */
+@media (prefers-color-scheme: dark) {
+  /*
+    TODO: Add dark mode styles if desired
+    Consider:
+    - Inverted color scheme with darker desert tones
+    - Nighttime desert aesthetic
+    - Adjusted contrast for accessibility
+  */
+}
