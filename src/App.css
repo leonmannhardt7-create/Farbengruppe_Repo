@@ -1,0 +1,145 @@
+/* Main App Styles with Ghibli-inspired Desert Theme */
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Desert Background */
+.desert-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    #ffd89b 0%,
+    #f7c98e 20%,
+    #f5d9b8 40%,
+    #e8d5c4 60%,
+    #d4a574 100%
+  );
+
+  /*
+    TODO: Replace with a Ghibli-style desert landscape image
+    Recommended approach:
+    1. Create or commission a custom Ghibli-inspired desert illustration
+    2. Or use a service like:
+       - Midjourney: "Ghibli-style desert landscape with sand dunes, warm colors, soft lighting"
+       - DALL-E: "Studio Ghibli style desert with golden sand dunes"
+    3. Place the image in /public/desert-background.jpg
+    4. Uncomment and adjust the following:
+
+    background-image: url('/desert-background.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  */
+}
+
+/* Add subtle texture overlay */
+.desert-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Add animated sand dunes (CSS illustration) */
+.desert-background::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background:
+    radial-gradient(ellipse 800px 300px at 50% 100%, #c89461 0%, transparent 70%),
+    radial-gradient(ellipse 600px 200px at 20% 100%, #d4a574 0%, transparent 60%),
+    radial-gradient(ellipse 700px 250px at 80% 100%, #b8885a 0%, transparent 65%);
+  opacity: 0.4;
+}
+
+/* Main Content Area */
+.app-content {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer */
+.app-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  color: #8a7a6a;
+  font-size: 0.9rem;
+}
+
+.app-footer p {
+  margin: 0;
+}
+
+.app-footer a {
+  color: #c89461;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.app-footer a:hover {
+  color: #b8885a;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-content {
+    padding: 0.5rem;
+  }
+
+  .app-footer {
+    font-size: 0.8rem;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+  }
+}
+
+/* Loading Animation (optional, for future enhancements) */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .desert-background {
+    display: none;
+  }
+
+  .app {
+    background: white;
+  }
+}
